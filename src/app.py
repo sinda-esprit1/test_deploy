@@ -32,7 +32,7 @@ result = ""
 
 
 def load_bertopic():
-    bertopic_model = BERTopic.load(model_path)
+    bertopic_model = BERTopic.load(r'../backend/JE_model')
     return bertopic_model
 
 model = load_bertopic()
