@@ -1,5 +1,4 @@
 import dash
-from bertopic import BERTopic
 import dash_bootstrap_components as dbc
 from dash import dcc, html, Patch, clientside_callback, callback, dash_table
 from dash.dependencies import Input, Output, State
@@ -12,8 +11,6 @@ import html as ht
 import os
 import pandas as pd
 import os
-
-model_path = os.path.join("backend", "JE_model")
 hierarchy_path = os.path.join("hierarchy", "Hierarchy2.json")
 logo_path=os.path.join("assets","logo.png")
 load_figure_template(["minty", "minty_dark"])
@@ -31,11 +28,6 @@ liens_existants = []
 result = ""
 
 
-def load_bertopic():
-    bertopic_model = BERTopic.load(r'../backend/JE_model')
-    return bertopic_model
-
-model = load_bertopic()
 
 navbar = dbc.Navbar(
             dbc.Container(
@@ -241,7 +233,7 @@ def analyze_url(n_clicks, url):
         theme = [elem for elem in split[1:] if elem != ""]
         sujets = []
         for the in theme:
-            sujet, sim = model.find_topics(the, top_n=1)
+            sujet,="helo"
             sujets.append(sujet)
         all = []
         for element in sujets:

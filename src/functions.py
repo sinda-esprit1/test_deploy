@@ -1,20 +1,14 @@
 import plotly.express as px
 import plotly as pl 
-from sentence_transformers import SentenceTransformer
 import pandas as pd
-from annoy import AnnoyIndex
-from bertopic import BERTopic
 import numpy as np 
 import plotly.express as px
 import plotly.graph_objects as go
 import anthropic
 import pandas as pd
-import requests
-import html
-import csv
+
 import re
 import pandas as pd
-from bs4 import BeautifulSoup
 import os
 import os
 from dotenv import load_dotenv
@@ -24,15 +18,11 @@ import csv
 
 load_dotenv()
 
-model_path = os.path.join("backend", "JE_model")
 data_path=os.path.join("sources", "data.csv")
 data_us_path=os.path.join("sources", "data_us.csv")
 resume_path=os.path.join("sources", "resume.csv")
 
-def load_bertopic():
-    bertopic_model=BERTopic.load(r'../backend/JE_model')
-    return bertopic_model
-model=load_bertopic()
+
 
 
 
@@ -105,7 +95,7 @@ def get_dataframe(cluster_value):
 
     docs = data["resume"].tolist()
   
-    df = model.get_document_info(docs)    
+    df = []
     documents= get_documents_by_topic(df,cluster_value)
     resultats = []
     for resume in documents:
@@ -126,14 +116,14 @@ def get_all_candidats(topics):
 
     docs = data["resume"].tolist()
   
-    df = model.get_document_info(docs)
+    df = []
 
     cluster_data = {}
     cluster_options = []
     links=[]
     for topic in topics:
             
-            cluster_name = model.get_topic_info(topic[0]).CustomName.to_string(index=False).strip()
+            cluster_name = "hola"
     
             cluster_option = f"{cluster_name} "
             cluster_options.append(cluster_option)
