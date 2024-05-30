@@ -18,9 +18,21 @@ import csv
 
 load_dotenv()
 
-data_path=os.path.join("sources", "data.csv")
-data_us_path=os.path.join("sources", "data_us.csv")
-resume_path=os.path.join("sources", "resume.csv")
+data_path=os.path.join("data.csv")
+data_us_path=os.path.join("data_us.csv")
+resume_path=os.path.join("", "resume.csv")
+script_dir = os.path.dirname(__file__) # the cwd relative path of the script file
+rel_path = "data.csv" # the target file
+data_path = os.path.join(script_dir, rel_path) # the cwd-relative path of the target file
+
+script_dir = os.path.dirname(__file__) # the cwd relative path of the script file
+rel_path = "data_us.csv" # the target file
+data_us_path = os.path.join(script_dir, rel_path) # the cwd-relative path of the target file
+
+script_dir = os.path.dirname(__file__) # the cwd relative path of the script file
+rel_path = "resume.csv" # the target file
+resume_path = os.path.join(script_dir, rel_path) # the cwd-relative path of the target file
+
 
 
 

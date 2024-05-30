@@ -11,7 +11,12 @@ import html as ht
 import os
 import pandas as pd
 import os
-hierarchy_path = os.path.join("hierarchy", "Hierarchy2.json")
+
+script_dir = os.path.dirname(__file__) # the cwd relative path of the script file
+rel_path = "Hierarchy2.json" # the target file
+hierarchy_path = os.path.join(script_dir, rel_path) # the cwd-relative path of the target file
+
+
 logo_path=os.path.join("assets","logo.png")
 load_figure_template(["minty", "minty_dark"])
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.MINTY, dbc.icons.BOOTSTRAP], suppress_callback_exceptions=True)
@@ -23,6 +28,8 @@ color_mode_switch = html.Span(
         dbc.Label(className="fa fa-sun", html_for="color-mode-switch"),
     ]
 )
+
+
 
 liens_existants = []
 result = ""
